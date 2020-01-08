@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Test Ionic Application
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,6 +9,25 @@
 <ion-content>
   <div class="ion-padding">
     The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+    <p>
+      If you get lost, the
+      <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/"
+        >docs</a
+      >
+      will be your guide.
+    </p>
+    <ion-button expand="block" routerLink="/details" routerDirection="root">
+      Details
+    </ion-button>
+    <h3 *ngIf="selected">{{selected}}</h3>
+    <ion-item-group *ngIf="items && !selected">
+      <ion-item-divider color="light">Items</ion-item-divider>
+      <ion-item *ngFor="let item of items" (click)="selectItem(item)">
+        <ion-label>{{ item }}</ion-label>
+        <ion-button expand="full" color="primary" (click)="selectItem(item)">
+          Select
+        </ion-button>
+      </ion-item>
+    </ion-item-group>
   </div>
 </ion-content>
